@@ -1,52 +1,33 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes, FC, HTMLAttributes } from 'react';
 import './button.scss';
 
-interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary?: boolean;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * How large should the button be?
-   */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * Button contents
-   */
+interface Props {
+  disabled?: boolean;
+  variant?: 'primary' | 'secondary' | 'warning' | 'danger' | 'success' | 'info' | 'light' | 'dark';
+  size?: 'sm' | 'md' | 'lg';
   label: string;
-  /**
-   * Optional click handler
-   */
+  outline?: boolean;
   onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
 }
 
-/**
- * Primary UI component for user interaction
- */
-export const Button = ({
-  primary = false,
+export type ButtonProps = Props & ButtonHTMLAttributes<HTMLButtonElement>;
+
+export const Button: FC<ButtonProps> = ({
+  variant = 'primary',
   size = 'medium',
-  backgroundColor,
   label,
+  outline,
+  type = 'button',
   ...props
-}: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+}) => {
   return (
     <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      className={`btn ${outline ? `btn-outline-${variant}` : `btn-${variant}`} btn-${size}`}
+      type={type}
       {...props}
     >
       {label}
-      <style jsx>{`
-        button {
-          background-color: ${backgroundColor};
-        }
-      `}</style>
     </button>
   );
 };

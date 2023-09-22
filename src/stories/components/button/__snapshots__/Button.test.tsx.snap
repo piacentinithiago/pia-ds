@@ -3,7 +3,7 @@
 exports[`Button component should render the button component e make snapshot 1`] = `
 <div>
   <button
-    class="jsx-781207911 storybook-button storybook-button--medium storybook-button--secondary"
+    class="btn btn-primary btn-medium"
     type="button"
   >
     Click me
