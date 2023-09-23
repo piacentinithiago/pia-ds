@@ -59,13 +59,61 @@ describe('Button component', () => {
     expect(button).toHaveClass('btn btn-dark');
   });
 
+  it('should render as button when outline-primary prop true', () => {
+    const { getByText } = render(<Button label="outline primary" outline />);
+    const button = getByText('outline primary');
+    expect(button).toHaveClass('btn btn-outline-primary');
+  });
+
+  it('should render as button when outline-secondary prop true', () => {
+    const { getByText } = render(<Button label="outline secondary" outline variant='secondary' />);
+    const button = getByText('outline secondary');
+    expect(button).toHaveClass('btn btn-outline-secondary');
+  });
+
+  it('should render as button when outline-warning prop true', () => {
+    const { getByText } = render(<Button label="outline warning" outline variant='warning' />);
+    const button = getByText('outline warning');
+    expect(button).toHaveClass('btn btn-outline-warning');
+  });
+
+  it('should render as button when outline-danger prop true', () => {
+    const { getByText } = render(<Button label="outline danger" outline variant='danger' />);
+    const button = getByText('outline danger');
+    expect(button).toHaveClass('btn btn-outline-danger');
+  });
+
+  it('should render as button when outline-success prop true', () => {
+    const { getByText } = render(<Button label="outline success" outline variant='success' />);
+    const button = getByText('outline success');
+    expect(button).toHaveClass('btn btn-outline-success');
+  });
+
+  it('should render as button when outline-info prop true', () => {
+    const { getByText } = render(<Button label="outline info" outline variant='info' />);
+    const button = getByText('outline info');
+    expect(button).toHaveClass('btn btn-outline-info');
+  });
+
+  it('should render as button when outline-light prop true', () => {
+    const { getByText } = render(<Button label="outline light" outline variant='light' />);
+    const button = getByText('outline light');
+    expect(button).toHaveClass('btn btn-outline-light');
+  });
+
+  it('should render as button when outline-dark prop true', () => {
+    const { getByText } = render(<Button label="outline dark" outline variant='dark' />);
+    const button = getByText('outline dark');
+    expect(button).toHaveClass('btn btn-outline-dark');
+  });
+
   it('should render as small button when small prop is true', () => {
     const { getByText } = render(<Button label="Small Button" size='sm' />);
     const button = getByText('Small Button');
     expect(button).toHaveClass('btn btn-primary btn-sm');
   });
 
-  it('renders as large button when large prop is true', () => {
+  it('should render as large button when large prop is true', () => {
     const { getByText } = render(<Button label="Large Button" size='lg' />);
     const button = getByText('Large Button');
     expect(button).toHaveClass('btn btn-primary btn-lg');

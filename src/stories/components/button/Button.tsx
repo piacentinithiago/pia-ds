@@ -17,7 +17,7 @@ export const Button: FC<ButtonProps> = ({
   variant = 'primary',
   size = 'medium',
   label,
-  outline,
+  outline = false,
   type = 'button',
   ...props
 }) => {
