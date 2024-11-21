@@ -2,6 +2,7 @@ import type { StorybookConfig } from'@storybook/nextjs';
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx','../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+
   addons: [
     '@storybook/addon-a11y',
     '@storybook/addon-actions',
@@ -12,12 +13,16 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     '@storybook/addon-styling'
   ],
+
   framework: {
     name:'@storybook/nextjs',
     options: {},
   },
-  docs: {
-    autodocs:'tag',
-  },
+
+  docs: {},
+
+  typescript: {
+    reactDocgen: 'react-docgen-typescript'
+  }
 };
 export default config;
