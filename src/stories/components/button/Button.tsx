@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, FC, HTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, FC } from 'react';
 import './button.scss';
 
 interface Props {
