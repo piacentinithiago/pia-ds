@@ -1,0 +1,11 @@
+- name: Comentar no PR se houver conflito
+  if: steps.checar.outputs.mergeable == 'false'
+  run: |
+    AUTOR_PR="${{ github.event.pull_request.user.login }}"
+    COMMENT_BODY="🚨 Olá @$AUTOR_PR, este Pull Request está com **conflitos de merge**.\n\nPor favor, resolva os conflitos para que possamos prosseguir. 🙏"
+
+    curl -s -X POST \
+      -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+      -H "Content-Type: application/json" \
+      -d "{\"body\": \"$COMMENT_BODY\"}" \
+      "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments"
